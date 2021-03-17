@@ -1,4 +1,4 @@
-![](https://github.com/gcormier/bigp4ppa/blob/main/bigp4ppa.png?raw=true 250)
+<img src="https://github.com/gcormier/bigp4ppa/blob/main/bigp4ppa.png?raw=true" height="200px" />
 # big p4ppa
 A Raspberry Pi 5-channel PWM, PT100 and ADXL345 board. Should work on any Pi2/3/4
 
