@@ -7,14 +7,13 @@ I was looking to add on more controllable fans to my 3D printer. The SKR was
 maxxed out even just a simple controllable fan, let alone PWM. [Klipper](https://www.klipper3d.org/) supports
 multiple MCU's, including the [Raspberry Pi](https://www.klipper3d.org/RPi_microcontroller.html) so adding this to the Pi was a simple way to tackle the problem.
 
-With a bit of spare board space (it was tight) I also fit some space to accomodate
+With a bit of spare board space (it was tight) I also fit some space to accommodate
 PT100 modules, so I could have a nice place to put mine.
 
 # Features
 - Power the Raspberry Pi via the 5V input
 
    You MUST power the Pi via this board. Do not connect any other power source (USB, PoE hat, battery backup hat) to the Pi when using this board.
-   the Raspberry Pi.
 
 - 5 PWM outputs
 - Independant voltages for each fan - 5V or anything up 24V
