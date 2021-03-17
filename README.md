@@ -1,4 +1,4 @@
-![asd](https://raw.githubusercontent.com/gcormier/bigp4ppa/master/bigp4ppa.png 250)
+![](https://github.com/gcormier/bigp4ppa/blob/main/bigp4ppa.png?raw=true)
 # big p4ppa
 A Raspberry Pi 5-channel PWM, PT100 and ADXL345 board. Should work on any Pi2/3/4
 
