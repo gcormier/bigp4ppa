@@ -21,6 +21,9 @@ PT100 modules, so I could have a nice place to put mine.
 - Support for [Adafruit's PT100 amplifier](https://www.adafruit.com/product/3328) board OR a [PT100 Stepstick](https://github.com/VoronDesign/Voron-Hardware) (available on AliExpress/etc)
 - Convenient header for an ADXL345 accelerometer to [measure resonance](https://www.klipper3d.org/Measuring_Resonances.html) in Klipper
 
+# Purchase on Tindie
+The design is fully open source, and you are welcome to build this yourself. If you would like to buy a kit or fully assembled version, you can buy it on my Tindie store, <a href="https://www.tindie.com/products/gcormier/big-p4ppa/">Greg's Tinker Town</a>.
+
 # How to use
 - Put a jumper on the appropriate voltage for each fan
 - Connect 5V and Ground
