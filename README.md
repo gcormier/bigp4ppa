@@ -64,6 +64,11 @@ The board was designed to power fans, not heavy loads or heaters. The designed b
 ## Serial Bus
 The Pi has 2 SPI busses. big p4ppa uses SPI1 for the PT100 board, and SPI0 for the ADXL accelerometer. Note that these pin arrangements are suited to the intended modules, but are otherwise just SPI breakouts if you want to use them for other purposes. Also, if you want to solder a [Pi stacking header](https://www.adafruit.com/product/1979) and use another board on top of this one, you can make a note of which SPI bus your additional board uses and avoid using it on big p4ppa. Fitment is not guaranteed for additional boards stacked on top.
 
+## Pi Fan
+Generally speaking it's hard to find 24V fans in 25mm x 25mm size. There are lots of 5V or 12V options. If you choose 5V,
+you may wish to run the fan at full speed for electrical noise considerations, as it is sharing the 5V of the Pi. As a result,
+choose your fan accordingly rather then buying something too strong and needing PWM to slow it down.
+
 ## No NeoPixel?
 The SKR 1.4 already supports Neopixel LED's. It had to be cut due to board space.
 
