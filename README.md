@@ -83,3 +83,4 @@ to a fab.
 - The 5th output (furthest right) labelled GPIO19 is actually GPIO23
 - The 4th output labelled GPIO19 is actually GPIO26
 - The sample configuration [klipper-v1.cfg](klipper-v1.cfg) uses the correct GPIO numbers
+- For reference, left to right, the correct GPIOs are GPIO12, GPIO13, GPIO18, GPIO26, GPIO23
