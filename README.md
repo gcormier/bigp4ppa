@@ -15,61 +15,43 @@ PT100 modules, so I could have a nice place to put mine.
 
    You MUST power the Pi via this board. Do not connect any other power source (USB, PoE hat, battery backup hat) to the Pi when using this board.
 
-- 5 PWM outputs
+- 5 PWM outputs (via MOSFETs with external flyback diodes)
 - Independant voltages for each fan - 5V or anything up 24V
 - Cutout for a 25mmx25mm fan to cool the Pi if desired
 - Support for [Adafruit's PT100 amplifier](https://www.adafruit.com/product/3328) board OR a [PT100 Stepstick](https://github.com/VoronDesign/Voron-Hardware) (available on AliExpress/etc)
 - Convenient header for an ADXL345 accelerometer to [measure resonance](https://www.klipper3d.org/Measuring_Resonances.html) in Klipper
 
-# Purchase on Tindie
-The design is fully open source, and you are welcome to build this yourself. If you would like to buy a kit or fully assembled version, you can buy it on my Tindie store, <a href="https://www.tindie.com/products/gcormier/big-p4ppa/">Greg's Tinker Town</a>.
+## Purchase on Tindie
+The design is fully open source, and you are welcome to build this yourself. If you would like to buy a kit or fully assembled version, you can buy it on my Tindie store, <a href="https://www.tindie.com/products/gcormier/big-p4ppa/">Greg's Tinker Town</a>. The kit is exclusive through-hole components.
 
 # How to use
 - Put a jumper on the appropriate voltage for each fan
 - Connect 5V and Ground
 - Connect the other voltage rails you plan on using. Note 12V/24V are just labels. You could supply 16V if you had fans that worked at that voltage for some reason. The maximum voltage is 24V. You need to make sure your power supply can source enough current for all your fans. Don't forget to account for current required by the Pi itself on the 5V supply!
 - You can control the fans via the GPIO's as printed on the circuit board
-   - Looking at the board, left to right - GPIO12, GPIO13, GPIO18, GPIO19, GPIO23
+   - Looking at the board, left to right - GPIO12, GPIO13, GPIO18, GPIO26, GPIO23
+
+## Standoffs
+The main board itself is rather sturdy, but using standoffs would be an extra measure to keep the board secure.
+
+If using the Adafruit board, standoffs for that board are recommended.
+
+## Power Header
+Note that the input header will only accept the smallest (white) ferrules. Unfortunately there is minimal space on the board
+to accomodate a larger screw terminal without removing a channel.
 
 # Accelerometer
 The header supports either a 2x3 or 2x4 pin header. The 2x4 header can accomadate previously designed 2x4 headers that plugged
 directly in the Raspberry Pi header. The two 3V3 pins are linked so you can use either to power the ADXL345.
+
+Note that if you are using a 4-wire thermistor, plugging in the accelerometer could be challenging. You may need to
+remove the thermistor temporarily for accelerometer tuning.
 ## Klipper config
 First, give a good read to [Klipper documentation on Raspberry Pi as a secondary MCU](https://www.klipper3d.org/RPi_microcontroller.html)
 
-Then, we can reference the [sample configuration provided](https://github.com/KevinOConnor/klipper/blob/master/config/sample-raspberry-pi.cfg) and come up with
-
-```
-[mcu rpi]
-serial: /tmp/klipper_host_mcu
-
-[temperature_fan pi_cpu_fan]
-sensor_type: temperature_host
-pin: rpi:gpio23
-control: watermark
-max_delta: 5
-target_temp: 50
-min_temp: 0
-max_temp : 90
+Then, we can reference the [sample configuration provided](https://github.com/KevinOConnor/klipper/blob/master/config/sample-raspberry-pi.cfg) and come up with the sample config files located in this repository.
 
 
-[fan_generic myfan1]
-pin: rpi:gpio12
-shutdown_speed: 0    # Turn off for a shutdown/panic
-
-[fan_generic myfan2]
-pin: rpi:gpio13
-shutdown_speed: 1.0    # Leave on during shutdown/panic
-
-[fan_generic myfan3]
-pin: rpi:gpio18
-
-[output_pin someExternalRelay]
-pin: rpi:gpio19
-pwm: False
-value: 0
-shutdown_value: 0
-```
 
 
 
@@ -92,4 +74,7 @@ which will be a huge step forward. Gerber's are there if you want to send them o
 to a fab.
 
 ## Errata
-v1 - the pin header furthest right is incorrectly labelled GPIO19 when it is in fact GPIO23.
+### v1
+- The 5th output (furthest right) labelled GPIO19 is actually GPIO23
+- The 4th output labelled GPIO19 is actually GPIO26
+- The sample configuration [klipper-v1.cfg](klipper-v1.cfg) uses the correct GPIO numbers

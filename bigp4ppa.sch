@@ -638,7 +638,7 @@ U 1 1 604BB36A
 P 800 1200
 F 0 "J1" H 718 775 50  0000 C CNN
 F 1 "Power Input" H 718 866 50  0000 C CNN
-F 2 "!Greg:TerminalBlock_TE_282834-4_1x04_P2.54mm_Horizontal" H 800 1200 50  0001 C CNN
+F 2 "!custom:TerminalBlock_TE_282834-4_1x04_P2.54mm_Horizontal" H 800 1200 50  0001 C CNN
 F 3 "~" H 800 1200 50  0001 C CNN
 	1    800  1200
 	-1   0    0    1   
